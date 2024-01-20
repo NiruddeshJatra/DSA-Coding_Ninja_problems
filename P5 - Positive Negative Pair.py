@@ -59,3 +59,25 @@ def pairs(arr, n):
         if i>0 and -i in negativeValues:
             pairArr.append([-i,i])
     return pairArr 
+
+
+# ----- MODIFIED GFG SOLUTION --------
+# Extra Requirements:
+# The pair that appears first(i.e. second element of the pair appears first) in A[] should appear first in the returning list.
+# Within the pair, the negative integer should appear before the positive integer.
+
+
+def findPairs(self,arr,n):
+    positiveValues = {}
+    pairArr = []
+    
+    for i in arr:
+        positiveValues[i] = 1
+        if -i in positiveValues:
+            if i>0:
+                pairArr.append(-i)
+                pairArr.append(i)
+            elif i<0:
+                pairArr.append(i)
+                pairArr.append(-i)
+    return pairArr 
